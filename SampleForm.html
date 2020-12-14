@@ -19,6 +19,11 @@
             <error-output class="text-error" for="text"></error-output>
         </div>
         <div>
+            <label for="text2">Password input type:</label>
+            <input type="text2" id="text2" name="text2" required>
+            <error-output class="text2-error" for="text2"></error-output>
+        </div>
+        <div>
             <label for="text1">Email input type:</label>
             <input type="text1" id="text1" name="text1">
             <error-output class="text1-error" for="text1"></error-output>
@@ -71,6 +76,15 @@
             if (mailRegex.test(email.value))
                 mailError.textContent = "";
             else mailError.textContent = "Incorrect Email ID";
+        });
+
+        const pwd = document.querySelector('#text2');
+        const pwdError = document.querySelector('.text2-error');
+        pwd.addEventListener('input', function () {
+            let pwdRegex = RegExp('(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[0-9]{1,})(?=.*[@#$%+!]{1}).{8,}');
+            if (pwdRegex.test(pwd.value))
+                pwdError.textContent = "";
+            else pwdError.textContent = "Incorrect Password";
         });
 
         const mob = document.querySelector('#text3');
