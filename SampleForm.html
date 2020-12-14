@@ -14,6 +14,11 @@
             <h1>HTML 5 Form Input Fields</h1>
         </header>
         <div>
+            <label for="text">Name input time:</label>
+            <input type="text" id="text" name="text">
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
             <label for="url">URL input type:</label>
             <input type="url" id="url" name="url">
         </div>
@@ -40,6 +45,15 @@
         </div>
     </form>
     <script>
+        const text = document.querySelector('#text');
+        const textError = document.querySelector('.text-error');
+        text.addEventListener('input', function () {
+            let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if (nameRegex.test(text.value))
+                textError.textContent = "";
+            else textError.textContent = "Name is Incorrect";
+        });
+
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
