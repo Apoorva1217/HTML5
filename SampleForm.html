@@ -24,6 +24,11 @@
             <error-output class="text1-error" for="text1"></error-output>
         </div>
         <div>
+            <label for="text3">Mobile Number input type:</label>
+            <input type="text3" id="text3" name="text3">
+            <error-output class="text3-error" for="text3"></error-output>
+        </div>
+        <div>
             <label for="url">URL input type:</label>
             <input type="url" id="url" name="url">
         </div>
@@ -66,6 +71,15 @@
             if (mailRegex.test(email.value))
                 mailError.textContent = "";
             else mailError.textContent = "Incorrect Email ID";
+        });
+
+        const mob = document.querySelector('#text3');
+        const mobError = document.querySelector('.text3-error');
+        mob.addEventListener('input', function () {
+            let mobRegex = RegExp('^[1-9]{2}[ ][0-9]{10}');
+            if (mobRegex.test(mob.value))
+                mobError.textContent = "";
+            else mobError.textContent = "Incorrect Mobile Number";
         });
 
         const salary = document.querySelector('#salary');
